@@ -65,6 +65,10 @@ func ReadPassphraseFromStdin(name string) (string, error) {
 	buf := input.BufferStdin()
 	prompt := fmt.Sprintf("Password to sign with '%s':", name)
 
+	//BROTODO
+	passphrase := "qwerqwer"
+	return passphrase, nil
+	
 	passphrase, err := input.GetPassword(prompt, buf)
 	if err != nil {
 		return passphrase, fmt.Errorf("Error reading passphrase: %v", err)

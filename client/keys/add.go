@@ -148,16 +148,17 @@ func runAddCmd(_ *cobra.Command, args []string) error {
 			fmt.Fprintf(os.Stderr, "Key %q saved to disk.\n", name)
 			return nil
 		}
-
+		//BROTODO please change your password
 		// ask for a password when generating a local key
-		if viper.GetString(FlagPublicKey) == "" && !viper.GetBool(flags.FlagUseLedger) {
-			encryptPassword, err = input.GetCheckPassword(
-				"HI Enter a passphrase to encrypt your key to disk:",
-				"Repeat the passphrase:", buf)
-			if err != nil {
-				return err
-			}
-		}
+		encryptPassword = "qwerqwer"
+		// if viper.GetString(FlagPublicKey) == "" && !viper.GetBool(flags.FlagUseLedger) {
+		// 	encryptPassword, err = input.GetCheckPassword(
+		// 		"HI Enter a passphrase to encrypt your key to disk:",
+		// 		"Repeat the passphrase:", buf)
+		// 	if err != nil {
+		// 		return err
+		// 	}
+		// }
 	}
 
 	if viper.GetString(FlagPublicKey) != "" {

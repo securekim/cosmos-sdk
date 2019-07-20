@@ -65,7 +65,8 @@ func CompleteAndBroadcastTxCLI(txBldr authtypes.TxBuilder, cliCtx context.CLICon
 	if cliCtx.Simulate {
 		return nil
 	}
-
+	//BROTODO SKIP CONFIRM ALWAYS
+	cliCtx.SkipConfirm = true
 	if !cliCtx.SkipConfirm {
 		stdSignMsg, err := txBldr.BuildSignMsg(msgs)
 		if err != nil {
@@ -92,10 +93,12 @@ func CompleteAndBroadcastTxCLI(txBldr authtypes.TxBuilder, cliCtx context.CLICon
 		}
 	}
 
-	passphrase, err := keys.GetPassphrase(fromName)
-	if err != nil {
-		return err
-	}
+	//BROTODO
+	passphrase := "qwerqwer"
+	// passphrase, err := keys.GetPassphrase(fromName)
+	// if err != nil {
+	// 	return err
+	// }
 
 	// build and sign the transaction
 	txBytes, err := txBldr.BuildAndSign(fromName, passphrase, msgs)
